@@ -26,7 +26,7 @@ public class Sponsor {
     @Column(columnDefinition = "TEXT", nullable = false)
     private String logo_url;
 
-    @Enumerated(EnumType.STRING, nullable = false)
+    @Enumerated(EnumType.STRING)
     private SponsorCategory sponsorCategory;
 
     @OneToOne(mappedBy = "sponsor")
