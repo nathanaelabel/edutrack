@@ -1,6 +1,7 @@
 package com.metrodata.entities;
 
 import com.metrodata.enums.Gender;
+import com.metrodata.enums.SponsorCategory;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -12,7 +13,7 @@ import java.util.List;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-@Table(name = "sponsors")
+@Table(name = "tb_m_sponsors")
 public class Sponsor {
 
     @Id
@@ -22,8 +23,11 @@ public class Sponsor {
     @Column(length = 100, nullable = false)
     private String name;
 
-    @Enumerated(EnumType.STRING)
-    private Gender gender;
+    @Column(columnDefinition = "TEXT", nullable = false)
+    private String logo_url;
+
+    @Enumerated(EnumType.STRING, nullable = false)
+    private SponsorCategory sponsorCategory;
 
     @OneToOne(mappedBy = "sponsor")
     private Certificate certificate;
