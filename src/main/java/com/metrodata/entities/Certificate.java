@@ -9,15 +9,15 @@ import lombok.NoArgsConstructor;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-@Table(name = "certificates")
+@Table(name = "tb_m_certificates")
 public class Certificate {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Column
-    private String image;
+    @Column(columnDefinition = "TEXT")
+    private String image_url;
 
     @OneToOne
     @JoinColumn(name = "sponsor_id", nullable = false)
