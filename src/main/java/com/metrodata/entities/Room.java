@@ -21,7 +21,7 @@ public class Room {
     @Column(length = 100, nullable = false)
     private String name;
 
-    @OneToMany(mappedBy = "room")
+    @OneToMany(mappedBy = "room", cascade = CascadeType.ALL)
     private List<SessionDetailRoom> sessionDetailRooms;
 
     @ManyToOne

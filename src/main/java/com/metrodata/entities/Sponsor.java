@@ -29,7 +29,7 @@ public class Sponsor {
     @Column(nullable = false)
     private SponsorCategory sponsorCategory;
 
-    @OneToMany(mappedBy = "sponsor")
+    @OneToMany(mappedBy = "sponsor", cascade = CascadeType.ALL)
     private List<Speaker> speakers;
 
     @ManyToOne

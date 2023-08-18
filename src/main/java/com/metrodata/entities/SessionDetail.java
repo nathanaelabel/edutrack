@@ -30,10 +30,10 @@ public class SessionDetail {
     @OneToOne(mappedBy = "sessionDetail", cascade = CascadeType.ALL)
     private CertificateTemplate certificateTemplate;
 
-    @OneToMany(mappedBy = "sessionDetail")
+    @OneToMany(mappedBy = "sessionDetail", cascade = CascadeType.ALL)
     private List<SessionSpeaker> sessionSpeakers;
 
-    @OneToMany(mappedBy = "sessionDetail")
+    @OneToMany(mappedBy = "sessionDetail", cascade = CascadeType.ALL)
     private List<SessionDetailRoom> sessionDetailRooms;
 
     @ManyToOne

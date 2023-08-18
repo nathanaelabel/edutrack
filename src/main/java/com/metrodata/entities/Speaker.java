@@ -34,6 +34,6 @@ public class Speaker {
     @JoinColumn(name = "sponsor", nullable = false, unique = true)
     private Sponsor sponsor;
 
-    @OneToMany(mappedBy = "speaker")
+    @OneToMany(mappedBy = "speaker", cascade = CascadeType.ALL)
     private List<SessionSpeaker> sessionSpeakers;
 }

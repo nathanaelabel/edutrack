@@ -41,7 +41,7 @@ public class Participant {
     @JoinColumn(name = "event_id", nullable = false, unique = true)
     private Event event;
 
-    @OneToMany(mappedBy = "participant")
+    @OneToMany(mappedBy = "participant", cascade = CascadeType.ALL)
     private List<SessionRegistrant> sessionRegistrants;
 
 //    @ManyToMany

@@ -35,6 +35,6 @@ public class Session {
     @JoinColumn(name = "event_id", nullable = false, unique = true)
     private Event event;
 
-    @OneToMany(mappedBy = "session")
+    @OneToMany(mappedBy = "session", cascade = CascadeType.ALL)
     private List<SessionDetail> sessionDetails;
 }
