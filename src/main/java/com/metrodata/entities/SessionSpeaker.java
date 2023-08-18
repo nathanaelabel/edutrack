@@ -17,6 +17,10 @@ public class SessionSpeaker {
     private Long id;
 
     @ManyToOne
-    @JoinColumn(name = "speaker_id", nullable = false)
+    @JoinColumn(name = "speaker_id", nullable = false, unique = true)
     private Speaker speaker;
+
+    @ManyToOne
+    @JoinColumn(name = "session_detail_id", nullable = false, unique = true)
+    private SessionDetail sessionDetail;
 }
