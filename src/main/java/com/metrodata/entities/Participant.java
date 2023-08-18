@@ -22,7 +22,6 @@ public class Participant {
     @Column(length = 100, nullable = false)
     private String name;
 
-    // Dalam ERD tidak ada 'unique' namun sepertinya perlu ditambahkan
     @Column(length = 100, nullable = false, unique = true)
     private String email;
 
@@ -38,11 +37,18 @@ public class Participant {
     @Enumerated(EnumType.STRING)
     private Occupation occupation;
 
-    @ManyToMany
-    @JoinTable(
-            name = "tb_m_participant_events",
-            joinColumns = @JoinColumn(name = "participant_id"),
-            inverseJoinColumns = @JoinColumn(name = "event_id")
-    )
-    Set<Participant> participantEvents;
+    @ManyToOne
+    @JoinColumn(name = "event_id", nullable = false, unique = true)
+    private Event event;
+
+    @OneToMany(mappedBy = "participant")
+    Set<SessionRegistrant> sessionRegistrants;
+
+//    @ManyToMany
+//    @JoinTable(
+//            name = "tb_m_participant_events",
+//            joinColumns = @JoinColumn(name = "participant_id"),
+//            inverseJoinColumns = @JoinColumn(name = "event_id")
+//    )
+//    Set<Participant> participantEvents;
 }

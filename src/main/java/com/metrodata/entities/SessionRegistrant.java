@@ -36,4 +36,8 @@ public class SessionRegistrant {
     @ManyToOne
     @JoinColumn(name = "session_detail_id", nullable = false, unique = true)
     private SessionDetail sessionDetail;
+
+    @ManyToOne
+    @JoinColumn(name = "participant_id", nullable = false, unique = true)
+    private Participant participant;
 }
