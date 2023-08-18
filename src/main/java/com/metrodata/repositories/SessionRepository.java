@@ -8,7 +8,7 @@ import org.springframework.stereotype.Repository;
 import java.util.List;
 
 @Repository
-public interface SessionRepository extends JpaRepository<SessionRepository, Long> {
+public interface SessionRepository extends JpaRepository<Session, Long> {
 
     // Query Method
     Integer countAllByName(String name);

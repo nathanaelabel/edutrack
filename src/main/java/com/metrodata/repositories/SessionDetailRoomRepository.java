@@ -8,7 +8,7 @@ import org.springframework.stereotype.Repository;
 import java.util.List;
 
 @Repository
-public interface SessionDetailRoomRepository extends JpaRepository<SessionDetailRoomRepository, Long> {
+public interface SessionDetailRoomRepository extends JpaRepository<SessionDetailRoom, Long> {
 
     // Query Method
     List<SessionDetailRoom> findBySessionDetailRoomId(String sessionDetailRoomId);

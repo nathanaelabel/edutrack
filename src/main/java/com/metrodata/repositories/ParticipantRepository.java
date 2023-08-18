@@ -9,7 +9,7 @@ import org.springframework.stereotype.Repository;
 import java.util.List;
 
 @Repository
-public interface ParticipantRepository extends JpaRepository<ParticipantRepository, Long> {
+public interface ParticipantRepository extends JpaRepository<Participant, Long> {
 
     // Query Method
     Integer countAllByEmail(String email);

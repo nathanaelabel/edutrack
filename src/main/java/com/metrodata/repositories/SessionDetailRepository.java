@@ -8,7 +8,7 @@ import org.springframework.stereotype.Repository;
 import java.util.List;
 
 @Repository
-public interface SessionDetailRepository extends JpaRepository<SessionDetailRepository, Long> {
+public interface SessionDetailRepository extends JpaRepository<SessionDetail, Long> {
 
     // Query Method
     Integer countAllByCapacity(Integer capacity);
