@@ -57,6 +57,9 @@ public class Event {
     @Column(nullable = false)
     private Byte status;
 
+    @Column(nullable = false)
+    private Boolean isPublished;
+
     @OneToMany(mappedBy = "event")
     private List<Sponsor> sponsors;
 
