@@ -33,6 +33,9 @@ public class SessionDetail {
     @OneToMany(mappedBy = "sessionDetail")
     private List<SessionSpeaker> sessionSpeakers;
 
+    @OneToMany(mappedBy = "sessionDetail")
+    private List<SessionDetailRoom> sessionDetailRooms;
+
     @ManyToOne
     @JoinColumn(name = "session_id", nullable = false, unique = true)
     private Session session;

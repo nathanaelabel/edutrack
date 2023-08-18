@@ -66,6 +66,9 @@ public class Event {
     @OneToMany(mappedBy = "event")
     private List<Session> sessions;
 
+    @OneToMany(mappedBy = "event")
+    private List<Room> rooms;
+
 //    @ManyToMany
 //    @JoinTable(
 //            name = "tb_m_participant_events",
