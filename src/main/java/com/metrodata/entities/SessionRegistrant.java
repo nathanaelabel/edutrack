@@ -12,7 +12,7 @@ import java.time.LocalDateTime;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-@Table(name = "tb_m_session_registrants", uniqueConstraints = @UniqueConstraint(columnNames = "id"))
+@Table(name = "tb_tr_session_registrants", uniqueConstraints = @UniqueConstraint(columnNames = "id"))
 public class SessionRegistrant {
 
     @Id

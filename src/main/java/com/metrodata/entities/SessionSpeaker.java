@@ -9,7 +9,7 @@ import lombok.NoArgsConstructor;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-@Table(name = "tb_m_session_speakers", uniqueConstraints = @UniqueConstraint(columnNames = "id"))
+@Table(name = "tb_tr_session_speakers", uniqueConstraints = @UniqueConstraint(columnNames = "id"))
 public class SessionSpeaker {
 
     @Id
