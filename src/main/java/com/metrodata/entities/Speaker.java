@@ -1,17 +1,18 @@
 package com.metrodata.entities;
 
-import com.metrodata.enums.SponsorCategory;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import java.util.List;
+
 @Entity
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-@Table(name = "tb_m_sponsors")
-public class Sponsor {
+@Table(name = "tb_m_speakers")
+public class Speaker {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -21,16 +22,18 @@ public class Sponsor {
     private String name;
 
     @Column(columnDefinition = "TEXT", nullable = false)
-    private String logo_url;
+    private String photo_url;
 
-    @Enumerated(EnumType.STRING)
-    @Column(nullable = false)
-    private SponsorCategory sponsorCategory;
+    @Column(length = 50, nullable = false)
+    private String job_title;
 
-//    @OneToOne(mappedBy = "sponsor")
-//    private Certificate certificate;
+    @Column(length = 100, nullable = false)
+    private String company;
 
     @ManyToOne
-    @JoinColumn(name = "event_id", nullable = false, unique = true)
-    private Event event;
+    @JoinColumn(name = "sponsor", nullable = false, unique = true)
+    private Sponsor sponsor;
+
+    @OneToMany(mappedBy = "speaker")
+    private List<SessionSpeaker> sessionSpeakers;
 }
