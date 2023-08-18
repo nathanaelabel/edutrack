@@ -5,15 +5,12 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-import java.time.LocalTime;
-import java.util.List;
-
 @Entity
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-@Table(name = "tb_m_sessions")
-public class Session {
+@Table(name = "tb_m_session_details")
+public class SessionDetail {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -23,18 +20,12 @@ public class Session {
     private String name;
 
     @Column(nullable = false)
-    private LocalTime start_time;
-
-    @Column(nullable = false)
-    private LocalTime end_time;
+    private Integer capacity;
 
     @Column(columnDefinition = "TEXT")
     private String description;
 
     @ManyToOne
-    @JoinColumn(name = "event_id", nullable = false, unique = true)
-    private Event event;
-
-    @OneToMany(mappedBy = "session")
-    private List<SessionDetail> sessionDetails;
+    @JoinColumn(name = "session_id", nullable = false, unique = true)
+    private Session session;
 }
