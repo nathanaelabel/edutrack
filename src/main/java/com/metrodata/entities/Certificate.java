@@ -20,6 +20,6 @@ public class Certificate {
     private String certificate_url;
 
     @OneToOne
-    @JoinColumn(name = "session_detail_id", nullable = false)
-    private Session session;
+    @JoinColumn(name = "session_detail_id", nullable = false, unique = true)
+    private SessionDetail sessionDetail;
 }
