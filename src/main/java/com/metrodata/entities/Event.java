@@ -9,7 +9,6 @@ import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.time.LocalTime;
 import java.util.List;
-import java.util.Set;
 
 @Entity
 @Data
@@ -43,12 +42,6 @@ public class Event {
     @Column(nullable = false)
     private LocalDateTime end_registration;
 
-//    @Column(name = "start_date_time", nullable = false)
-//    private LocalDateTime startDateTime;
-
-//    @Column(name = "end_date_time", nullable = false)
-//    private LocalDateTime endDateTime;
-
     @Column(nullable = false)
     private Integer capacity;
 
@@ -58,17 +51,26 @@ public class Event {
     @Column(columnDefinition = "TEXT", nullable = false)
     private String location;
 
+    @Column(columnDefinition = "TEXT", nullable = false)
+    private String image_url;
+
     @Column(nullable = false)
     private Byte status;
 
     @OneToMany(mappedBy = "event")
     private List<Sponsor> sponsors;
 
-    @ManyToMany
-    @JoinTable(
-            name = "tb_m_participant_events",
-            joinColumns = @JoinColumn(name = "event_id"),
-            inverseJoinColumns = @JoinColumn(name = "participant_id")
-    )
-    Set<Event> participantEvents;
+    @OneToMany(mappedBy = "event")
+    private List<Participant> participants;
+
+    @OneToMany(mappedBy = "event")
+    private List<Session> sessions;
+
+//    @ManyToMany
+//    @JoinTable(
+//            name = "tb_m_participant_events",
+//            joinColumns = @JoinColumn(name = "event_id"),
+//            inverseJoinColumns = @JoinColumn(name = "participant_id")
+//    )
+//    Set<Event> participantEvents;
 }
