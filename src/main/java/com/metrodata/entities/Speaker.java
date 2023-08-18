@@ -11,12 +11,12 @@ import java.util.List;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-@Table(name = "tb_m_speakers")
+@Table(name = "tb_m_speakers", uniqueConstraints = @UniqueConstraint(columnNames = "id"))
 public class Speaker {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long UniqueId;
+    private Long id;
 
     @Column(length = 100, nullable = false)
     private String name;

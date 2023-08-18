@@ -9,12 +9,12 @@ import lombok.NoArgsConstructor;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-@Table(name = "tb_m_session_details")
+@Table(name = "tb_m_session_details", uniqueConstraints = @UniqueConstraint(columnNames = "id"))
 public class SessionDetail {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long UniqueId;
+    private Long id;
 
     @Column(length = 100, nullable = false)
     private String name;

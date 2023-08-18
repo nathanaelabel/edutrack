@@ -12,12 +12,12 @@ import java.util.List;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-@Table(name = "tb_m_sessions")
+@Table(name = "tb_m_sessions", uniqueConstraints = @UniqueConstraint(columnNames = "id"))
 public class Session {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long UniqueId;
+    private Long id;
 
     @Column(length = 100, nullable = false)
     private String name;

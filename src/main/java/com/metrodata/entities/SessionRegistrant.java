@@ -12,12 +12,12 @@ import java.time.LocalDateTime;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-@Table(name = "tb_m_session_registrants")
+@Table(name = "tb_m_session_registrants", uniqueConstraints = @UniqueConstraint(columnNames = "id"))
 public class SessionRegistrant {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long UniqueId;
+    private Long id;
 
     private LocalDateTime attended_at;
 

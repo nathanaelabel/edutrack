@@ -14,12 +14,12 @@ import java.util.List;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-@Table(name = "tb_m_events")
+@Table(name = "tb_m_events", uniqueConstraints = @UniqueConstraint(columnNames = "id"))
 public class Event {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long UniqueId;
+    private Long id;
 
     @Column(length = 100, nullable = false)
     private String name;

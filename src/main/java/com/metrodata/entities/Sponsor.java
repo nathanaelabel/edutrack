@@ -12,12 +12,12 @@ import java.util.List;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-@Table(name = "tb_m_sponsors")
+@Table(name = "tb_m_sponsors", uniqueConstraints = @UniqueConstraint(columnNames = "id"))
 public class Sponsor {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long UniqueId;
+    private Long id;
 
     @Column(length = 100, nullable = false)
     private String name;
