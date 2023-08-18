@@ -6,6 +6,8 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import java.util.List;
+
 @Entity
 @Data
 @AllArgsConstructor
@@ -27,8 +29,8 @@ public class Sponsor {
     @Column(nullable = false)
     private SponsorCategory sponsorCategory;
 
-//    @OneToOne(mappedBy = "sponsor")
-//    private Certificate certificate;
+    @OneToMany(mappedBy = "sponsor")
+    private List<Speaker> speakers;
 
     @ManyToOne
     @JoinColumn(name = "event_id", nullable = false, unique = true)
