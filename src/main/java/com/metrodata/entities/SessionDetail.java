@@ -27,8 +27,8 @@ public class SessionDetail {
     @Column(columnDefinition = "TEXT")
     private String description;
 
-    @OneToOne(mappedBy = "sessionDetail")
-    private Certificate certificate;
+    @OneToOne(mappedBy = "sessionDetail", cascade = CascadeType.ALL)
+    private CertificateTemplate certificateTemplate;
 
     @OneToMany(mappedBy = "sessionDetail")
     private List<SessionSpeaker> sessionSpeakers;

@@ -10,16 +10,15 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @NoArgsConstructor
 @Table(name = "tb_m_certificate_templates", uniqueConstraints = @UniqueConstraint(columnNames = "id"))
-public class Certificate {
+public class CertificateTemplate {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
     @Column(columnDefinition = "TEXT", nullable = false)
     private String certificate_url;
 
     @OneToOne
-    @JoinColumn(name = "session_detail_id", nullable = false, unique = true)
+    @PrimaryKeyJoinColumn(name = "session_detail_id", referencedColumnName = "id")
     private SessionDetail sessionDetail;
 }
