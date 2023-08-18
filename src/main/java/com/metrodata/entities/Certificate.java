@@ -14,7 +14,7 @@ public class Certificate {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+    private Long UniqueId;
 
     @Column(columnDefinition = "TEXT")
     private String image_url;

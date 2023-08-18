@@ -17,7 +17,7 @@ public class SessionRegistrant {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+    private Long UniqueId;
 
     private LocalDateTime attended_at;
 

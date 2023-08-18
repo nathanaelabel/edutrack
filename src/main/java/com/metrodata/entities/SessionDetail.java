@@ -14,7 +14,7 @@ public class SessionDetail {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+    private Long UniqueId;
 
     @Column(length = 100, nullable = false)
     private String name;
