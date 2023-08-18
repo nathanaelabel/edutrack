@@ -1,6 +1,6 @@
 package com.metrodata.entities;
 
-import com.metrodata.enums.Status;
+import com.metrodata.entities.enums.Status;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;

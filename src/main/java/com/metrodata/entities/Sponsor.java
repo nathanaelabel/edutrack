@@ -1,6 +1,6 @@
 package com.metrodata.entities;
 
-import com.metrodata.enums.SponsorCategory;
+import com.metrodata.entities.enums.SponsorCategory;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;

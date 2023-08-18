@@ -1,4 +1,4 @@
-package com.metrodata.enums;
+package com.metrodata.entities.enums;
 
 public enum Status {
     Active, Reject, WaitingList;

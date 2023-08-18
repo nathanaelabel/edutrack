@@ -1,13 +1,12 @@
 package com.metrodata.entities;
 
-import com.metrodata.enums.Occupation;
+import com.metrodata.entities.enums.Occupation;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import java.util.List;
-import java.util.Set;
 
 @Entity
 @Data
