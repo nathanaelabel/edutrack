@@ -1,5 +1,6 @@
 package com.metrodata.entities;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -27,18 +28,23 @@ public class Event {
     @Column(length = 50, nullable = false)
     private String slug;
 
+    @JsonFormat(pattern = "HH:mm", shape = JsonFormat.Shape.STRING)
     @Column(nullable = false)
     private LocalTime start_time;
 
+    @JsonFormat(pattern = "HH:mm", shape = JsonFormat.Shape.STRING)
     @Column(nullable = false)
     private LocalDate start_date;
 
+    @JsonFormat(pattern = "yyyy-MM-dd", shape = JsonFormat.Shape.STRING)
     @Column(nullable = false)
     private LocalDate end_date;
 
+    @JsonFormat(pattern = "yyyy-MM-dd HH:mm", shape = JsonFormat.Shape.STRING)
     @Column(nullable = false)
     private LocalDateTime start_registration;
 
+    @JsonFormat(pattern = "yyyy-MM-dd HH:mm", shape = JsonFormat.Shape.STRING)
     @Column(nullable = false)
     private LocalDateTime end_registration;
 
@@ -60,16 +66,16 @@ public class Event {
     @Column(nullable = false)
     private Boolean isPublished;
 
-    @OneToMany(mappedBy = "event", cascade = CascadeType.ALL)
+    @OneToMany(mappedBy = "event", cascade = CascadeType.ALL, fetch = FetchType.EAGER)
     private List<Sponsor> sponsors;
 
-    @OneToMany(mappedBy = "event", cascade = CascadeType.ALL)
+    @OneToMany(mappedBy = "event", cascade = CascadeType.ALL, fetch = FetchType.EAGER)
     private List<Participant> participants;
 
-    @OneToMany(mappedBy = "event", cascade = CascadeType.ALL)
+    @OneToMany(mappedBy = "event", cascade = CascadeType.ALL, fetch = FetchType.EAGER)
     private List<Session> sessions;
 
-    @OneToMany(mappedBy = "event", cascade = CascadeType.ALL)
+    @OneToMany(mappedBy = "event", cascade = CascadeType.ALL, fetch = FetchType.EAGER)
     private List<Room> rooms;
 
 //    @ManyToMany
