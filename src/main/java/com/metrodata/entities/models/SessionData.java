@@ -17,4 +17,6 @@ public class SessionData {
     private LocalTime end_time;
 
     private String description;
+
+    private Long eventId;
 }

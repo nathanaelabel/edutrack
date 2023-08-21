@@ -31,6 +31,9 @@ public class Session {
     @Column(columnDefinition = "TEXT")
     private String description;
 
+    @Column(nullable = false)
+    private Boolean need_attendance;
+
     @ManyToOne
     @JoinColumn(name = "event_id", nullable = false, unique = true)
     private Event event;
