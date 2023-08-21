@@ -43,5 +43,28 @@ public class SessionService {
         } catch (Exception e) {
             throw new ResponseStatusException(HttpStatus.BAD_REQUEST, e.getMessage());
         }
+
+//        try {
+//            Session newSession = sessionRepository.save(session);
+//            return new ResponseData<>(newSession, "Session created successfully");
+//        } catch (Exception e) {
+//            throw new ResponseStatusException(HttpStatus.BAD_REQUEST, e.getMessage());
+//        }
+    }
+
+    public Session updateSession(long id, Session sessionData) {
+        Session session = getSessionById(id);
+        session.setName(sessionData.getName());
+        session.setStart_time(sessionData.getStart_time());
+        session.setEnd_time(sessionData.getEnd_time());
+        session.setDescription(sessionData.getDescription());
+        session.setEvent(sessionData.getEvent());
+        return sessionRepository.save(session);
+    }
+
+    public Session deleteSession(long id) {
+        Session session = getSessionById(id);
+        sessionRepository.delete(session);
+        return session;
     }
 }
