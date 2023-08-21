@@ -1,10 +1,12 @@
 package com.metrodata.services;
 
 import com.metrodata.entities.Event;
+import com.metrodata.entities.models.ResponseData;
 import com.metrodata.repositories.EventRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.server.ResponseStatusException;
 
 import java.util.List;
@@ -23,13 +25,18 @@ public class EventService {
         return eventRepository.findAll();
     }
 
-    public Event getEventById(Long id) {
+    public Event getEventById( @PathVariable Long id) {
         return eventRepository.findById(id)
                 .orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND, String.format("Event with id %d not found", id)));
     }
 
-    public Event insertEvent(Event event) {
-        return eventRepository.save(event);
+    public ResponseData<Event> insertEvent(Event event) {
+        try {
+            Event newEvent = eventRepository.save(event);
+            return new ResponseData<>(newEvent, "Event created successfully");
+        } catch (Exception e) {
+            throw new ResponseStatusException(HttpStatus.BAD_REQUEST, e.getMessage());
+        }
     }
 
     public Event updateEvent(long id, Event eventData) {
