@@ -31,6 +31,7 @@ public class SessionService {
     }
 
     public ResponseData<Session> insertSession(SessionData sessionData) {
+        // menggunakan DTO
         try {
             Session session = new Session();
             session.setName(sessionData.getName());
@@ -43,7 +44,8 @@ public class SessionService {
         } catch (Exception e) {
             throw new ResponseStatusException(HttpStatus.BAD_REQUEST, e.getMessage());
         }
-
+        
+        // tidak menggunakan DTO
 //        try {
 //            Session newSession = sessionRepository.save(session);
 //            return new ResponseData<>(newSession, "Session created successfully");
