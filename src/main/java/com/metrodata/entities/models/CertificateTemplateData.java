@@ -5,7 +5,7 @@ import lombok.Data;
 @Data
 public class CertificateTemplateData {
 
-    private String certificate_url;
+    private String certificateUrl;
 
     private Long sessionDetailId;
 }

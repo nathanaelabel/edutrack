@@ -33,7 +33,7 @@ public class CertificateTemplateService {
     public ResponseData<CertificateTemplate> insertCertificateTemplate(CertificateTemplateData certificateTemplateData) {
         try {
             CertificateTemplate certificateTemplate = new CertificateTemplate();
-            certificateTemplate.setCertificate_url(certificateTemplateData.getCertificate_url());
+            certificateTemplate.setCertificateUrl(certificateTemplateData.getCertificateUrl());
             certificateTemplate.setSessionDetail(sessionDetailService.getSessionDetailById(certificateTemplateData.getSessionDetailId()));
             CertificateTemplate newCertificateTemplate = certificateTemplateRepository.save(certificateTemplate);
             return new ResponseData<>(newCertificateTemplate, "Certificate Template created successfully");
@@ -44,7 +44,7 @@ public class CertificateTemplateService {
 
     public CertificateTemplate updateCertificateTemplate(long id, CertificateTemplate certificateTemplateData) {
         CertificateTemplate certificateTemplate = getCertificateTemplateById(id);
-        certificateTemplate.setCertificate_url(certificateTemplateData.getCertificate_url());
+        certificateTemplate.setCertificateUrl(certificateTemplateData.getCertificateUrl());
         certificateTemplate.setSessionDetail(sessionDetailService.getSessionDetailById(certificateTemplateData.getSessionDetail().getId()));
         return certificateTemplateRepository.save(certificateTemplate);
     }
