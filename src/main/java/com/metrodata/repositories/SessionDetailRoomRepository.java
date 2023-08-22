@@ -11,13 +11,13 @@ import java.util.List;
 public interface SessionDetailRoomRepository extends JpaRepository<SessionDetailRoom, Long> {
 
     // Query Method
-    List<SessionDetailRoom> findBySessionDetailRoomId(String sessionDetailRoomId);
+    Integer countById(Long id);
 
     // Custom Query JPQL
-    @Query("SELECT s FROM SessionDetailRoom s WHERE s.id = ?1 AND s.room = ?2")
-    List<SessionDetailRoom> findBySessionIdAndRoomId(String sessionDetailRoomId, String roomId);
+    @Query("SELECT sdr FROM SessionDetailRoom sdr WHERE sdr.sessionDetail.capacity < :capacity")
+    List<SessionDetailRoom> findBySessionDetailCapacityLessThan(Integer capacity);
 
     // Custom Query Native
-    @Query(value = "SELECT * FROM tb_tr_session_detail_rooms WHERE session_detail_id = ?1 AND room_id = ?2", nativeQuery = true)
-    List<SessionDetailRoom> findBySessionIdAndRoomIdNative(String sessionDetailRoomId, String roomId);
+    @Query(value = "SELECT * FROM session_detail_room sdr WHERE sdr.session_detail_id = :sessionId", nativeQuery = true)
+    List<SessionDetailRoom> findBySessionDetailId(Long sessionId);
 }

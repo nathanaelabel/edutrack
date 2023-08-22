@@ -11,13 +11,13 @@ import java.util.List;
 public interface SessionDetailRepository extends JpaRepository<SessionDetail, Long> {
 
     // Query Method
-    Integer countAllByCapacity(Integer capacity);
+    Integer countAllByName(String name);
 
     // Custom Query JPQL
-    @Query("SELECT sd FROM SessionDetail sd WHERE sd.capacity = ?2")
+    @Query("SELECT sd FROM SessionDetail sd WHERE sd.capacity < 100")
     List<SessionDetail> findByCapacity(Integer capacity);
 
     // Custom Query Native
-    @Query(value = "SELECT * FROM tb_m_session_details WHERE name = ?1 AND capacity = ?2", nativeQuery = true)
+    @Query(value = "SELECT * FROM tb_m_session_details WHERE capacity < 50", nativeQuery = true)
     List<SessionDetail> findByCapacityNative(Integer capacity);
 }
