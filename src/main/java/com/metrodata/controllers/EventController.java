@@ -1,6 +1,7 @@
 package com.metrodata.controllers;
 
 import com.metrodata.entities.Event;
+import com.metrodata.entities.models.EventData;
 import com.metrodata.entities.models.ResponseData;
 import com.metrodata.services.EventService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -15,7 +16,7 @@ public class EventController {
     private EventService eventService;
 
     @Autowired
-    public EventController (EventService eventService) {
+    public EventController(EventService eventService) {
         this.eventService = eventService;
     }
 
@@ -30,8 +31,8 @@ public class EventController {
     }
 
     @PostMapping
-    public ResponseData<Event> insertEvent(@RequestBody Event event) {
-        return eventService.insertEvent(event);
+    public ResponseData<Event> insertEvent(@RequestBody EventData eventData) {
+        return eventService.insertEvent(eventData);
     }
 
     @PatchMapping("{id}")

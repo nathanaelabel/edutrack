@@ -33,7 +33,7 @@ public class Event {
     @Column(name = "start_time", nullable = false)
     private LocalTime startTime;
 
-    @JsonFormat(pattern = "HH:mm", shape = JsonFormat.Shape.STRING)
+    @JsonFormat(pattern = "yyyy-MM-dd", shape = JsonFormat.Shape.STRING)
     @Column(name = "start_date", nullable = false)
     private LocalDate startDate;
 

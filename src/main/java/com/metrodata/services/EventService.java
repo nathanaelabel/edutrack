@@ -1,6 +1,7 @@
 package com.metrodata.services;
 
 import com.metrodata.entities.Event;
+import com.metrodata.entities.models.EventData;
 import com.metrodata.entities.models.ResponseData;
 import com.metrodata.repositories.EventRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -28,8 +29,21 @@ public class EventService {
         return eventRepository.findById(id).orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND, "Event with ID: " + id + " not found"));
     }
 
-    public ResponseData<Event> insertEvent(Event event) {
+    public ResponseData<Event> insertEvent(EventData eventData) {
         try {
+            Event event = new Event();
+            event.setName(eventData.getName());
+            event.setStartTime(eventData.getStartTime());
+            event.setStartDate(eventData.getStartDate());
+            event.setEndDate(eventData.getEndDate());
+            event.setStartRegistration(eventData.getStartRegistration());
+            event.setEndRegistration(eventData.getEndRegistration());
+            event.setCapacity(eventData.getCapacity());
+            event.setDescription(eventData.getDescription());
+            event.setLocation(eventData.getLocation());
+            event.setImageUrl(eventData.getImageUrl());
+            event.setStatus(eventData.getStatus());
+            event.setIsPublished(eventData.getIsPublished());
             Event newEvent = eventRepository.save(event);
             return new ResponseData<>(newEvent, "Event created successfully");
         } catch (Exception e) {
