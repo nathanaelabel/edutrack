@@ -35,7 +35,7 @@ public class SessionController {
         return sessionService.insertSession(sessionData);
     }
 
-    @PostMapping("{id}")
+    @PatchMapping("{id}")
     public Session updateSession(@PathVariable long id, @RequestBody Session session) {
         return sessionService.updateSession(id, session);
     }

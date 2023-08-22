@@ -26,22 +26,22 @@ public class SpeakerController {
     }
 
     @GetMapping("{id}")
-    public Speaker getSpeakerById(Long id) {
+    public Speaker getSpeakerById(@PathVariable Long id) {
         return speakerService.getSpeakerById(id);
     }
 
     @PostMapping
-    public ResponseData<Speaker> insertSpeaker(SpeakerData speakerData) {
+    public ResponseData<Speaker> insertSpeaker(@RequestBody SpeakerData speakerData) {
         return speakerService.insertSpeaker(speakerData);
     }
 
-    @PostMapping("{id}")
-    public Speaker updateSpeaker(long id, Speaker speaker) {
+    @PatchMapping("{id}")
+    public Speaker updateSpeaker(@PathVariable long id, @RequestBody Speaker speaker) {
         return speakerService.updateSpeaker(id, speaker);
     }
 
     @DeleteMapping("{id}")
-    public Speaker deleteSpeaker(long id) {
+    public Speaker deleteSpeaker(@PathVariable long id) {
         return speakerService.deleteSpeaker(id);
     }
 }

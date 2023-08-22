@@ -26,22 +26,22 @@ public class RoomController {
     }
 
     @GetMapping("{id}")
-    public Room getRoomById(Long id) {
+    public Room getRoomById(@PathVariable Long id) {
         return roomService.getRoomById(id);
     }
 
     @PostMapping
-    public ResponseData<Room> insertRoom(RoomData roomData) {
+    public ResponseData<Room> insertRoom(@RequestBody RoomData roomData) {
         return roomService.insertRoom(roomData);
     }
 
-    @PostMapping("{id}")
-    public Room updateRoom(long id, Room room) {
+    @PatchMapping("{id}")
+    public Room updateRoom(@PathVariable long id, @RequestBody Room room) {
         return roomService.updateRoom(id, room);
     }
 
     @DeleteMapping("{id}")
-    public Room deleteRoom(long id) {
+    public Room deleteRoom(@PathVariable long id) {
         return roomService.deleteRoom(id);
     }
 }

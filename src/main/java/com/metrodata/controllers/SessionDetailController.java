@@ -26,17 +26,17 @@ public class SessionDetailController {
     }
 
     @GetMapping("{id}")
-    public SessionDetail getSessionDetailById(Long id) {
+    public SessionDetail getSessionDetailById(@PathVariable Long id) {
         return sessionDetailService.getSessionDetailById(id);
     }
 
     @PostMapping
-    public ResponseData<SessionDetail> insertSessionDetail(SessionDetailData sessionDetailData) {
+    public ResponseData<SessionDetail> insertSessionDetail(@RequestBody SessionDetailData sessionDetailData) {
         return sessionDetailService.insertSessionDetail(sessionDetailData);
     }
 
-    @PostMapping("{id}")
-    public SessionDetail updateSessionDetail(long id, SessionDetail sessionDetail) {
+    @PatchMapping("{id}")
+    public SessionDetail updateSessionDetail(@PathVariable long id, @RequestBody SessionDetail sessionDetail) {
         return sessionDetailService.updateSessionDetail(id, sessionDetail);
     }
 

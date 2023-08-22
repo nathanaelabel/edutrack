@@ -26,22 +26,22 @@ public class CertificateTemplateController {
     }
 
     @GetMapping("{id}")
-    public CertificateTemplate getCertificateTemplateById(Long id) {
+    public CertificateTemplate getCertificateTemplateById(@PathVariable Long id) {
         return certificateTemplateService.getCertificateTemplateById(id);
     }
 
     @PostMapping
-    public ResponseData<CertificateTemplate> insertCertificateTemplate(CertificateTemplateData certificateTemplateData) {
+    public ResponseData<CertificateTemplate> insertCertificateTemplate(@RequestBody CertificateTemplateData certificateTemplateData) {
         return certificateTemplateService.insertCertificateTemplate(certificateTemplateData);
     }
 
-    @PostMapping("{id}")
-    public CertificateTemplate updateCertificateTemplate(long id, CertificateTemplate certificateTemplate) {
+    @PatchMapping("{id}")
+    public CertificateTemplate updateCertificateTemplate(@PathVariable long id, @RequestBody CertificateTemplate certificateTemplate) {
         return certificateTemplateService.updateCertificateTemplate(id, certificateTemplate);
     }
 
     @DeleteMapping("{id}")
-    public CertificateTemplate deleteCertificateTemplate(long id) {
+    public CertificateTemplate deleteCertificateTemplate(@PathVariable long id) {
         return certificateTemplateService.deleteCertificateTemplate(id);
     }
 }

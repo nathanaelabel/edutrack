@@ -16,7 +16,7 @@ public class SponsorController {
     private SponsorService sponsorService;
 
     @Autowired
-    public SponsorController (SponsorService sponsorService) {
+    public SponsorController(SponsorService sponsorService) {
         this.sponsorService = sponsorService;
     }
 
@@ -26,22 +26,22 @@ public class SponsorController {
     }
 
     @GetMapping("{id}")
-    public Sponsor getSponsorById(Long id) {
+    public Sponsor getSponsorById(@PathVariable Long id) {
         return sponsorService.getSponsorById(id);
     }
 
     @PostMapping
-    public ResponseData<Sponsor> insertSponsor(SponsorData sponsorData) {
+    public ResponseData<Sponsor> insertSponsor(@RequestBody SponsorData sponsorData) {
         return sponsorService.insertSponsor(sponsorData);
     }
 
-    @PostMapping("{id}")
-    public Sponsor updateSponsor(long id, Sponsor sponsor) {
+    @PatchMapping("{id}")
+    public Sponsor updateSponsor(@PathVariable long id, @RequestBody Sponsor sponsor) {
         return sponsorService.updateSponsor(id, sponsor);
     }
 
     @DeleteMapping("{id}")
-    public Sponsor deleteSponsor(long id) {
+    public Sponsor deleteSponsor(@PathVariable long id) {
         return sponsorService.deleteSponsor(id);
     }
 }
