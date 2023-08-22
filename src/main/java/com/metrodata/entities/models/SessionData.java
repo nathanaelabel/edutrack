@@ -11,10 +11,10 @@ public class SessionData {
     private String name;
 
     @JsonFormat(pattern = "HH:mm", shape = JsonFormat.Shape.STRING)
-    private LocalTime start_time;
+    private LocalTime startTime;
 
     @JsonFormat(pattern = "HH:mm", shape = JsonFormat.Shape.STRING)
-    private LocalTime end_time;
+    private LocalTime endTime;
 
     private String description;
 

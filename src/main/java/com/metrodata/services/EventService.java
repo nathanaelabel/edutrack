@@ -40,14 +40,14 @@ public class EventService {
     public Event updateEvent(long id, Event eventData) {
         Event event = getEventById(id);
         event.setName(eventData.getName());
-        event.setStart_date(eventData.getStart_date());
-        event.setEnd_date(eventData.getEnd_date());
-        event.setStart_registration(eventData.getStart_registration());
-        event.setEnd_registration(eventData.getEnd_registration());
+        event.setStartDate(eventData.getStartDate());
+        event.setEndDate(eventData.getEndDate());
+        event.setStartRegistration(eventData.getStartRegistration());
+        event.setEndRegistration(eventData.getEndRegistration());
         event.setCapacity(eventData.getCapacity());
         event.setDescription(eventData.getDescription());
         event.setLocation(eventData.getLocation());
-        event.setImage_url(eventData.getImage_url());
+        event.setImageUrl(eventData.getImageUrl());
         event.setStatus(eventData.getStatus());
         return eventRepository.save(event);
     }

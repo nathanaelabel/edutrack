@@ -21,17 +21,18 @@ public class SessionRegistrant {
 
     private LocalDateTime attended_at;
 
-    private Byte is_attended;
+    @Column(name = "is_attended", nullable = false)
+    private Boolean isAttended;
 
     @Enumerated(EnumType.STRING)
     @Column(nullable = false)
     private Status status;
 
-    @Column(nullable = false)
-    private LocalDateTime registered_at;
+    @Column(name = "registered_at", nullable = false)
+    private LocalDateTime registeredAt;
 
-    @Column(nullable = false)
-    private Byte is_reminder_sent;
+    @Column(name = "is_reminder_sent", nullable = false)
+    private Byte isReminderSent;
 
     @ManyToOne
     @JoinColumn(name = "session_detail_id", nullable = false, unique = true)

@@ -31,12 +31,14 @@ public class SessionService {
     }
 
     public ResponseData<Session> insertSession(SessionData sessionData) {
-        // menggunakan DTO
+
+        // contoh function yang menggunakan DTO
+
         try {
             Session session = new Session();
             session.setName(sessionData.getName());
-            session.setStart_time(sessionData.getStart_time());
-            session.setEnd_time(sessionData.getEnd_time());
+            session.setStartTime(sessionData.getStartTime());
+            session.setEndTime(sessionData.getEndTime());
             session.setDescription(sessionData.getDescription());
             session.setEvent(eventService.getEventById(sessionData.getEventId()));
             Session newSession = sessionRepository.save(session);
@@ -44,21 +46,22 @@ public class SessionService {
         } catch (Exception e) {
             throw new ResponseStatusException(HttpStatus.BAD_REQUEST, e.getMessage());
         }
-        
-        // tidak menggunakan DTO
-//        try {
-//            Session newSession = sessionRepository.save(session);
-//            return new ResponseData<>(newSession, "Session created successfully");
-//        } catch (Exception e) {
-//            throw new ResponseStatusException(HttpStatus.BAD_REQUEST, e.getMessage());
-//        }
+
+        // contoh function yang tidak menggunakan DTO
+
+        // try {
+        //      Session newSession = sessionRepository.save(session);
+        //      return new ResponseData<>(newSession, "Session created successfully");
+        //  } catch (Exception e) {
+        //      throw new ResponseStatusException(HttpStatus.BAD_REQUEST, e.getMessage());
+        //  }
     }
 
     public Session updateSession(long id, Session sessionData) {
         Session session = getSessionById(id);
         session.setName(sessionData.getName());
-        session.setStart_time(sessionData.getStart_time());
-        session.setEnd_time(sessionData.getEnd_time());
+        session.setStartTime(sessionData.getStartTime());
+        session.setEndTime(sessionData.getEndTime());
         session.setDescription(sessionData.getDescription());
         session.setEvent(sessionData.getEvent());
         return sessionRepository.save(session);

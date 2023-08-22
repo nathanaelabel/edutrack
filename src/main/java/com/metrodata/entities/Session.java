@@ -22,17 +22,17 @@ public class Session {
     @Column(length = 100, nullable = false)
     private String name;
 
-    @Column(nullable = false)
-    private LocalTime start_time;
+    @Column(name = "start_time", nullable = false)
+    private LocalTime startTime;
 
-    @Column(nullable = false)
-    private LocalTime end_time;
+    @Column(name = "end_time", nullable = false)
+    private LocalTime endTime;
 
     @Column(columnDefinition = "TEXT")
     private String description;
 
-    @Column(nullable = false)
-    private Boolean need_attendance;
+    @Column(name = "need_attendance", nullable = false)
+    private Boolean needAttendance;
 
     @ManyToOne
     @JoinColumn(name = "event_id", nullable = false, unique = true)

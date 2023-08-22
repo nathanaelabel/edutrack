@@ -20,6 +20,6 @@ public interface EventRepository extends JpaRepository<Event, Long> {
     List<Event> getAllEventByIsPublished();
 
     // Custom Query Native
-    @Query(value = "SELECT * FROM tb_m_events WHERE is_published = ?1 AND capacity = ?2", nativeQuery = true)
+    @Query(value = "SELECT * FROM tb_m_events WHERE isPublished = ?1 AND capacity = ?2", nativeQuery = true)
     List<Event> getAllEventByIsPublishedNative(boolean isPublished);
 }

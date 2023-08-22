@@ -1,6 +1,7 @@
 package com.metrodata.entities;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -29,24 +30,24 @@ public class Event {
     private String slug;
 
     @JsonFormat(pattern = "HH:mm", shape = JsonFormat.Shape.STRING)
-    @Column(nullable = false)
-    private LocalTime start_time;
+    @Column(name = "start_time", nullable = false)
+    private LocalTime startTime;
 
     @JsonFormat(pattern = "HH:mm", shape = JsonFormat.Shape.STRING)
-    @Column(nullable = false)
-    private LocalDate start_date;
+    @Column(name = "start_date", nullable = false)
+    private LocalDate startDate;
 
     @JsonFormat(pattern = "yyyy-MM-dd", shape = JsonFormat.Shape.STRING)
-    @Column(nullable = false)
-    private LocalDate end_date;
+    @Column(name = "end_date", nullable = false)
+    private LocalDate endDate;
 
     @JsonFormat(pattern = "yyyy-MM-dd HH:mm", shape = JsonFormat.Shape.STRING)
-    @Column(nullable = false)
-    private LocalDateTime start_registration;
+    @Column(name = "start_registration", nullable = false)
+    private LocalDateTime startRegistration;
 
     @JsonFormat(pattern = "yyyy-MM-dd HH:mm", shape = JsonFormat.Shape.STRING)
-    @Column(nullable = false)
-    private LocalDateTime end_registration;
+    @Column(name = "end_registration", nullable = false)
+    private LocalDateTime endRegistration;
 
     @Column(nullable = false)
     private Integer capacity;
@@ -57,13 +58,13 @@ public class Event {
     @Column(columnDefinition = "TEXT", nullable = false)
     private String location;
 
-    @Column(columnDefinition = "TEXT", nullable = false)
-    private String image_url;
+    @Column(name = "image_url", columnDefinition = "TEXT", nullable = false)
+    private String imageUrl;
 
     @Column(nullable = false)
     private Byte status;
 
-    @Column(nullable = false)
+    @Column(name = "is_published", nullable = false)
     private Boolean isPublished;
 
     @OneToMany(mappedBy = "event", cascade = CascadeType.ALL, fetch = FetchType.EAGER)
