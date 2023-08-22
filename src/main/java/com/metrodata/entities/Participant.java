@@ -28,8 +28,8 @@ public class Participant {
     @Column(length = 100, nullable = false)
     private String university;
 
-    @Column(length = 15)
-    private String phone_number;
+    @Column(name = "phone_number", length = 15)
+    private String phoneNumber;
 
     @Column(columnDefinition = "TEXT")
     private String address;

@@ -21,11 +21,11 @@ public class Speaker {
     @Column(length = 100, nullable = false)
     private String name;
 
-    @Column(columnDefinition = "TEXT", nullable = false)
-    private String photo_url;
+    @Column(name = "photo_url", columnDefinition = "TEXT", nullable = false)
+    private String photoUrl;
 
-    @Column(length = 50, nullable = false)
-    private String job_title;
+    @Column(name = "job_title", length = 50, nullable = false)
+    private String jobTitle;
 
     @Column(length = 100, nullable = false)
     private String company;

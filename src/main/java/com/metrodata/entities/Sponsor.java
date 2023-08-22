@@ -22,8 +22,8 @@ public class Sponsor {
     @Column(length = 100, nullable = false)
     private String name;
 
-    @Column(columnDefinition = "TEXT", nullable = false)
-    private String logo_url;
+    @Column(name = "logo_url", columnDefinition = "TEXT", nullable = false)
+    private String logoUrl;
 
     @Enumerated(EnumType.STRING)
     @Column(nullable = false)
