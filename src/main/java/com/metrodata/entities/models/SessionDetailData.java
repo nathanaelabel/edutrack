@@ -1,5 +1,8 @@
 package com.metrodata.entities.models;
 
+import lombok.Data;
+
+@Data
 public class SessionDetailData {
 
     private String name;

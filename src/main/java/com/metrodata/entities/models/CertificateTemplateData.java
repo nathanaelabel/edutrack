@@ -7,5 +7,5 @@ public class CertificateTemplateData {
 
     private String certificate_url;
 
-//    private Long sessionDetailId;
+    private Long sessionDetailId;
 }
