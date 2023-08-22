@@ -8,16 +8,16 @@ import org.springframework.stereotype.Repository;
 import java.util.List;
 
 @Repository
-public interface CertificateTemplateRepository extends JpaRepository<CertificateTemplate, Long>{
+public interface CertificateTemplateRepository extends JpaRepository<CertificateTemplate, Long> {
 
     // Query Method
-    Integer countAllByCertificate_url(String certificate_url);
+    Integer countByCertificateUrl(String certificateUrl);
 
     // Custom Query JPQL
-    @Query("SELECT c FROM CertificateTemplate c WHERE c.certificate_url = ?1")
-    List<CertificateTemplate> findByCertificate_url(String certificate_url);
+    @Query("SELECT c FROM CertificateTemplate c WHERE c.certificateUrl = ?1")
+    List<CertificateTemplate> findByCertificateUrl(String certificateUrl);
 
     // Custom Query Native
-    @Query(value = "SELECT * FROM tb_m_certificate_templates WHERE certificate_url = ?1", nativeQuery = true)
-    List<CertificateTemplate> findByCertificate_urlNative(String certificate_url);
+    @Query(value = "SELECT * FROM certificate_template WHERE certificateUrl = ?1", nativeQuery = true)
+    List<CertificateTemplate> findByCertificateUrlNative(String certificateUrl);
 }

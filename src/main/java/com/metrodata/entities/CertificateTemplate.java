@@ -15,8 +15,8 @@ public class CertificateTemplate {
     @Id
     private Long id;
 
-    @Column(columnDefinition = "TEXT", nullable = false)
-    private String certificate_url;
+    @Column(name = "certificate_url", columnDefinition = "TEXT", nullable = false)
+    private String certificateUrl;
 
     @OneToOne
     @PrimaryKeyJoinColumn(name = "session_detail_id", referencedColumnName = "id")
