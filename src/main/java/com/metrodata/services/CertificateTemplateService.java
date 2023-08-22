@@ -49,8 +49,9 @@ public class CertificateTemplateService {
         return certificateTemplateRepository.save(certificateTemplate);
     }
 
-    public void deleteCertificateTemplate(long id) {
+    public CertificateTemplate deleteCertificateTemplate(long id) {
         CertificateTemplate certificateTemplate = getCertificateTemplateById(id);
         certificateTemplateRepository.delete(certificateTemplate);
+        return certificateTemplate;
     }
 }

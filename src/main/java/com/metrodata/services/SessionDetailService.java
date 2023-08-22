@@ -53,8 +53,9 @@ public class SessionDetailService {
         return sessionDetailRepository.save(sessionDetail);
     }
 
-    public void deleteSessionDetail(long id) {
+    public SessionDetail deleteSessionDetail(long id) {
         SessionDetail sessionDetail = getSessionDetailById(id);
         sessionDetailRepository.delete(sessionDetail);
+        return sessionDetail;
     }
 }
