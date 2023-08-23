@@ -10,27 +10,18 @@ import java.time.LocalTime;
 @Data
 public class EventData {
 
-    private String name;
-    private String slug;
+    private String name, slug, description, location, imageUrl;
 
     @JsonFormat(pattern = "HH:mm", shape = JsonFormat.Shape.STRING)
     private LocalTime startTime;
 
     @JsonFormat(pattern = "yyyy-MM-dd", shape = JsonFormat.Shape.STRING)
-    private LocalDate startDate;
-
-    @JsonFormat(pattern = "yyyy-MM-dd", shape = JsonFormat.Shape.STRING)
-    private LocalDate endDate;
+    private LocalDate startDate, endDate;
 
     @JsonFormat(pattern = "yyyy-MM-dd HH:mm", shape = JsonFormat.Shape.STRING)
-    private LocalDateTime startRegistration;
+    private LocalDateTime startRegistration, endRegistration;
 
-    @JsonFormat(pattern = "yyyy-MM-dd HH:mm", shape = JsonFormat.Shape.STRING)
-    private LocalDateTime endRegistration;
     private Integer capacity;
-    private String description;
-    private String location;
-    private String imageUrl;
     private Byte status;
     private Boolean isPublished;
 }

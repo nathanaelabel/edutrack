@@ -8,8 +8,7 @@ import lombok.Data;
 @Data
 public class SponsorData {
 
-    private String name;
-    private String logoUrl;
+    private String name, logoUrl;
 
     @Enumerated(EnumType.STRING)
     private SponsorCategory sponsorCategory;

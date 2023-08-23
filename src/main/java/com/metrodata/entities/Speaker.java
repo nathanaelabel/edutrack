@@ -1,5 +1,6 @@
 package com.metrodata.entities;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -11,7 +12,7 @@ import java.util.List;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-@Table(name = "tb_m_speakers", uniqueConstraints = @UniqueConstraint(columnNames = "id"))
+@Table(name = "tb_m_speakers")
 public class Speaker {
 
     @Id
@@ -30,10 +31,11 @@ public class Speaker {
     @Column(length = 100, nullable = false)
     private String company;
 
-    @ManyToOne
-    @JoinColumn(name = "sponsor", nullable = false, unique = true)
-    private Sponsor sponsor;
-
-    @OneToMany(mappedBy = "speaker", cascade = CascadeType.ALL)
+    @OneToMany(mappedBy = "speaker", cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+    @JsonIgnore
     private List<SessionSpeaker> sessionSpeakers;
+
+    @ManyToOne
+    @JoinColumn(name = "sponsor", nullable = false)
+    private Sponsor sponsor;
 }

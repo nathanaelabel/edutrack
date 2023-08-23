@@ -8,15 +8,9 @@ import java.time.LocalTime;
 @Data
 public class SessionData {
 
-    private String name;
+    private String name, description;
 
     @JsonFormat(pattern = "HH:mm", shape = JsonFormat.Shape.STRING)
-    private LocalTime startTime;
-
-    @JsonFormat(pattern = "HH:mm", shape = JsonFormat.Shape.STRING)
-    private LocalTime endTime;
-
-    private String description;
-
+    private LocalTime startTime, endTime;
     private Long eventId;
 }

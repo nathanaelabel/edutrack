@@ -5,9 +5,6 @@ import lombok.Data;
 @Data
 public class SpeakerData {
 
-    private String name;
-    private String photoUrl;
-    private String jobTitle;
-    private String company;
+    private String name, photoUrl, jobTitle, company;
     private Long sponsorId;
 }

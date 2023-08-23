@@ -1,5 +1,6 @@
 package com.metrodata.entities;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.metrodata.entities.enums.Occupation;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
@@ -12,7 +13,7 @@ import java.util.List;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-@Table(name = "tb_m_participants", uniqueConstraints = @UniqueConstraint(columnNames = "id"))
+@Table(name = "tb_m_participants")
 public class Participant {
 
     @Id
@@ -37,12 +38,13 @@ public class Participant {
     @Enumerated(EnumType.STRING)
     private Occupation occupation;
 
-    @ManyToOne
-    @JoinColumn(name = "event_id", nullable = false, unique = true)
-    private Event event;
-
-    @OneToMany(mappedBy = "participant", cascade = CascadeType.ALL)
+    @OneToMany(mappedBy = "participant", cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+    @JsonIgnore
     private List<SessionRegistrant> sessionRegistrants;
+
+    @ManyToOne
+    @JoinColumn(name = "event_id", nullable = false)
+    private Event event;
 
 //    @ManyToMany
 //    @JoinTable(
@@ -51,4 +53,5 @@ public class Participant {
 //            inverseJoinColumns = @JoinColumn(name = "event_id")
 //    )
 //    Set<Participant> participantEvents;
+
 }

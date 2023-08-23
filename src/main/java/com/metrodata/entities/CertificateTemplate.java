@@ -9,7 +9,7 @@ import lombok.NoArgsConstructor;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-@Table(name = "tb_m_certificate_templates", uniqueConstraints = @UniqueConstraint(columnNames = "id"))
+@Table(name = "tb_m_certificate_templates")
 public class CertificateTemplate {
 
     @Id

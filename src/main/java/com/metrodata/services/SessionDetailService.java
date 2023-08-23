@@ -4,7 +4,7 @@ import com.metrodata.entities.SessionDetail;
 import com.metrodata.entities.models.ResponseData;
 import com.metrodata.entities.models.SessionDetailData;
 import com.metrodata.repositories.SessionDetailRepository;
-import org.springframework.beans.factory.annotation.Autowired;
+import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
 import org.springframework.web.server.ResponseStatusException;
@@ -12,15 +12,11 @@ import org.springframework.web.server.ResponseStatusException;
 import java.util.List;
 
 @Service
+@RequiredArgsConstructor
 public class SessionDetailService {
 
-    private SessionService sessionService;
-    private SessionDetailRepository sessionDetailRepository;
-
-    @Autowired
-    public SessionDetailService(SessionDetailRepository sessionDetailRepository) {
-        this.sessionDetailRepository = sessionDetailRepository;
-    }
+    private final SessionService sessionService;
+    private final SessionDetailRepository sessionDetailRepository;
 
     public List<SessionDetail> getAllSessionDetails() {
         return sessionDetailRepository.findAll();

@@ -1,7 +1,7 @@
 package com.metrodata.entities;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
-import com.fasterxml.jackson.annotation.JsonManagedReference;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -16,7 +16,7 @@ import java.util.List;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-@Table(name = "tb_m_events", uniqueConstraints = @UniqueConstraint(columnNames = "id"))
+@Table(name = "tb_m_events")
 public class Event {
 
     @Id
@@ -68,15 +68,19 @@ public class Event {
     private Boolean isPublished;
 
     @OneToMany(mappedBy = "event", cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+    @JsonIgnore
     private List<Sponsor> sponsors;
 
     @OneToMany(mappedBy = "event", cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+    @JsonIgnore
     private List<Participant> participants;
 
     @OneToMany(mappedBy = "event", cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+    @JsonIgnore
     private List<Session> sessions;
 
     @OneToMany(mappedBy = "event", cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+    @JsonIgnore
     private List<Room> rooms;
 
 //    @ManyToMany
@@ -86,4 +90,5 @@ public class Event {
 //            inverseJoinColumns = @JoinColumn(name = "participant_id")
 //    )
 //    Set<Event> participantEvents;
+
 }

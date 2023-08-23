@@ -8,11 +8,7 @@ import lombok.Data;
 @Data
 public class ParticipantData {
 
-    private String name;
-    private String email;
-    private String university;
-    private String phoneNumber;
-    private String address;
+    private String name, email, university, phoneNumber, address;
 
     @Enumerated(EnumType.STRING)
     private Occupation occupation;

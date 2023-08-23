@@ -4,6 +4,7 @@ import com.metrodata.entities.Room;
 import com.metrodata.entities.models.ResponseData;
 import com.metrodata.entities.models.RoomData;
 import com.metrodata.repositories.RoomRepository;
+import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
 import org.springframework.web.server.ResponseStatusException;
@@ -11,14 +12,11 @@ import org.springframework.web.server.ResponseStatusException;
 import java.util.List;
 
 @Service
+@RequiredArgsConstructor
 public class RoomService {
 
-    private RoomRepository roomRepository;
-    private EventService eventService;
-
-    public RoomService(RoomRepository roomRepository) {
-        this.roomRepository = roomRepository;
-    }
+    private final RoomRepository roomRepository;
+    private final EventService eventService;
 
     public List<Room> getAllRooms() {
         return roomRepository.findAll();

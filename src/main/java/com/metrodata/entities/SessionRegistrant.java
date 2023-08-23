@@ -1,5 +1,6 @@
 package com.metrodata.entities;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
 import com.metrodata.entities.enums.Status;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
@@ -12,14 +13,16 @@ import java.time.LocalDateTime;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-@Table(name = "tb_tr_session_registrants", uniqueConstraints = @UniqueConstraint(columnNames = "id"))
+@Table(name = "tb_tr_session_registrants")
 public class SessionRegistrant {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    private LocalDateTime attended_at;
+    @JsonFormat(pattern = "yyyy-MM-dd HH:mm", shape = JsonFormat.Shape.STRING)
+    @Column(name = "attended_at", nullable = false)
+    private LocalDateTime attendedAt;
 
     @Column(name = "is_attended", nullable = false)
     private Boolean isAttended;
@@ -35,10 +38,10 @@ public class SessionRegistrant {
     private Byte isReminderSent;
 
     @ManyToOne
-    @JoinColumn(name = "session_detail_id", nullable = false, unique = true)
+    @JoinColumn(name = "session_detail_id", nullable = false)
     private SessionDetail sessionDetail;
 
     @ManyToOne
-    @JoinColumn(name = "participant_id", nullable = false, unique = true)
+    @JoinColumn(name = "participant_id", nullable = false)
     private Participant participant;
 }

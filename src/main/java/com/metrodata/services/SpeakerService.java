@@ -4,6 +4,7 @@ import com.metrodata.entities.Speaker;
 import com.metrodata.entities.models.ResponseData;
 import com.metrodata.entities.models.SpeakerData;
 import com.metrodata.repositories.SpeakerRepository;
+import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
 import org.springframework.web.server.ResponseStatusException;
@@ -11,14 +12,11 @@ import org.springframework.web.server.ResponseStatusException;
 import java.util.List;
 
 @Service
+@RequiredArgsConstructor
 public class SpeakerService {
 
-    private SpeakerRepository speakerRepository;
-    private SponsorService sponsorService;
-
-    public SpeakerService(SpeakerRepository speakerRepository) {
-        this.speakerRepository = speakerRepository;
-    }
+    private final SpeakerRepository speakerRepository;
+    private final SponsorService sponsorService;
 
     public List<Speaker> getAllSpeakers() {
         return speakerRepository.findAll();

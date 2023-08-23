@@ -4,7 +4,7 @@ import com.metrodata.entities.CertificateTemplate;
 import com.metrodata.entities.models.CertificateTemplateData;
 import com.metrodata.entities.models.ResponseData;
 import com.metrodata.repositories.CertificateTemplateRepository;
-import org.springframework.beans.factory.annotation.Autowired;
+import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
 import org.springframework.web.server.ResponseStatusException;
@@ -12,15 +12,11 @@ import org.springframework.web.server.ResponseStatusException;
 import java.util.List;
 
 @Service
+@RequiredArgsConstructor
 public class CertificateTemplateService {
 
-    private SessionDetailService sessionDetailService;
-    private CertificateTemplateRepository certificateTemplateRepository;
-
-    @Autowired
-    public CertificateTemplateService(CertificateTemplateRepository certificateTemplateRepository) {
-        this.certificateTemplateRepository = certificateTemplateRepository;
-    }
+    private final SessionDetailService sessionDetailService;
+    private final CertificateTemplateRepository certificateTemplateRepository;
 
     public List<CertificateTemplate> getAllCertificateTemplates() {
         return certificateTemplateRepository.findAll();

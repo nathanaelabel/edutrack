@@ -4,6 +4,7 @@ import com.metrodata.entities.Sponsor;
 import com.metrodata.entities.models.ResponseData;
 import com.metrodata.entities.models.SponsorData;
 import com.metrodata.repositories.SponsorRepository;
+import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
 import org.springframework.web.server.ResponseStatusException;
@@ -11,14 +12,11 @@ import org.springframework.web.server.ResponseStatusException;
 import java.util.List;
 
 @Service
+@RequiredArgsConstructor
 public class SponsorService {
 
-    private SponsorRepository sponsorRepository;
-    private EventService eventService;
-
-    public SponsorService(SponsorRepository sponsorRepository) {
-        this.sponsorRepository = sponsorRepository;
-    }
+    private final SponsorRepository sponsorRepository;
+    private final EventService eventService;
 
     public List<Sponsor> getAllSponsors() {
         return sponsorRepository.findAll();

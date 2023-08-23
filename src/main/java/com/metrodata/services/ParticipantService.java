@@ -4,6 +4,7 @@ import com.metrodata.entities.Participant;
 import com.metrodata.entities.models.ParticipantData;
 import com.metrodata.entities.models.ResponseData;
 import com.metrodata.repositories.ParticipantRepository;
+import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
 import org.springframework.web.server.ResponseStatusException;
@@ -11,14 +12,11 @@ import org.springframework.web.server.ResponseStatusException;
 import java.util.List;
 
 @Service
+@RequiredArgsConstructor
 public class ParticipantService {
 
-    private ParticipantRepository participantRepository;
-    private EventService eventService;
-
-    public ParticipantService(ParticipantRepository participantRepository) {
-        this.participantRepository = participantRepository;
-    }
+    private final ParticipantRepository participantRepository;
+    private final EventService eventService;
 
     public List<Participant> getAllParticipants() {
         return participantRepository.findAll();

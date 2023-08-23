@@ -4,7 +4,7 @@ import com.metrodata.entities.Event;
 import com.metrodata.entities.models.EventData;
 import com.metrodata.entities.models.ResponseData;
 import com.metrodata.repositories.EventRepository;
-import org.springframework.beans.factory.annotation.Autowired;
+import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
 import org.springframework.web.server.ResponseStatusException;
@@ -12,14 +12,10 @@ import org.springframework.web.server.ResponseStatusException;
 import java.util.List;
 
 @Service
+@RequiredArgsConstructor
 public class EventService {
 
-    private EventRepository eventRepository;
-
-    @Autowired
-    public EventService(EventRepository eventRepository) {
-        this.eventRepository = eventRepository;
-    }
+    private final EventRepository eventRepository;
 
     public List<Event> getAllEvents() {
         return eventRepository.findAll();

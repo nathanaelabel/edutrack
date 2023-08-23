@@ -9,7 +9,7 @@ import lombok.NoArgsConstructor;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-@Table(name = "tb_tr_session_speakers", uniqueConstraints = @UniqueConstraint(columnNames = "id"))
+@Table(name = "tb_tr_session_speakers")
 public class SessionSpeaker {
 
     @Id
@@ -17,10 +17,10 @@ public class SessionSpeaker {
     private Long id;
 
     @ManyToOne
-    @JoinColumn(name = "speaker_id", nullable = false, unique = true)
+    @JoinColumn(name = "speaker_id", nullable = false)
     private Speaker speaker;
 
     @ManyToOne
-    @JoinColumn(name = "session_detail_id", nullable = false, unique = true)
+    @JoinColumn(name = "session_detail_id", nullable = false)
     private SessionDetail sessionDetail;
 }

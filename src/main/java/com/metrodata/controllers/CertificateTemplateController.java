@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@RequestMapping("certificateTemplate")
+@RequestMapping("certificate-template")
 public class CertificateTemplateController {
 
     private CertificateTemplateService certificateTemplateService;
