@@ -29,6 +29,7 @@ public class EventService {
         try {
             Event event = new Event();
             event.setName(eventData.getName());
+            event.setSlug(eventData.getSlug());
             event.setStartTime(eventData.getStartTime());
             event.setStartDate(eventData.getStartDate());
             event.setEndDate(eventData.getEndDate());
@@ -50,6 +51,8 @@ public class EventService {
     public Event updateEvent(long id, Event eventData) {
         Event event = getEventById(id);
         event.setName(eventData.getName());
+        event.setSlug(eventData.getSlug());
+        event.setStartTime(eventData.getStartTime());
         event.setStartDate(eventData.getStartDate());
         event.setEndDate(eventData.getEndDate());
         event.setStartRegistration(eventData.getStartRegistration());
@@ -59,6 +62,7 @@ public class EventService {
         event.setLocation(eventData.getLocation());
         event.setImageUrl(eventData.getImageUrl());
         event.setStatus(eventData.getStatus());
+        event.setIsPublished(eventData.getIsPublished());
         return eventRepository.save(event);
     }
 
