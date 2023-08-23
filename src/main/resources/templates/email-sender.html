@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Thank You Letter</title>
+</head>
+<body style="font-family: Arial, sans-serif; background-color: #f7f7f7; margin: 0; padding: 0;">
+<table align="center" border="0" cellpadding="0" cellspacing="0" width="600" style="margin: 0 auto;">
+    <tr>
+        <td style="background-color: #ffffff; padding: 40px 20px;">
+            <img src="https://www.vincenzoracca.com/images/spring.png" alt="Logo"
+                 style="display: block; margin: 0 auto; max-width: 100px; height: auto;">
+            <h1 style="text-align: center; margin-top: 20px; color: #333;">Spring Thymeleaf Email</h1>
+            <br/>
+            <p th:text="${body}" style="font-size: 16px; color: #333; line-height: 1.6;"></p>
+            <p style="font-size: 16px; color: #333; line-height: 1.6;">
+                I wanted to express my heartfelt gratitude for your exceptional mentoring and training
+                during this past week on Java Spring Boot. Your guidance has been invaluable and has
+                helped me gain a deeper understanding of the framework.
+            </p>
+            <p style="font-size: 16px; color: #333; line-height: 1.6;">
+                Your ability to explain complex concepts in a clear and concise manner has made the
+                learning process enjoyable and productive. I truly appreciate the time and effort you
+                have dedicated to helping me enhance my skills.
+            </p>
+            <p style="font-size: 16px; color: #333; line-height: 1.6;">
+                Thank you once again for your patience, knowledge, and support. I look forward to
+                applying what I've learned to my projects and further improving my capabilities.
+            </p>
+            <p style="font-size: 16px; color: #333; line-height: 1.6;">
+                Best regards,
+                <br>
+                Nathanael Abel
+            </p>
+        </td>
+    </tr>
+    <tr>
+        <td style="background-color: #f7f7f7; padding: 20px 0; text-align: center;">
+            <p style="font-size: 14px; color: #777;">If you have any questions or need further assistance, please don't
+                hesitate to reach out to me. Thank you</p>
+        </td>
+    </tr>
+</table>
+</body>
+</html>
