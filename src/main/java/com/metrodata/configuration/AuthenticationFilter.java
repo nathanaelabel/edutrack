@@ -40,7 +40,8 @@ public class AuthenticationFilter extends BasicAuthenticationFilter {
 
     private String getJwtFromRequest(HttpServletRequest request) {
         String bearerToken = request.getHeader("Authorization");
-        return (StringUtils.hasText(bearerToken) && bearerToken.startsWith("Bearer ")) ? bearerToken.substring(7) : null;
+        return (StringUtils.hasText(bearerToken) && bearerToken.startsWith("Bearer ")) ?
+                bearerToken.substring(7) : null;
     }
 
     public UsernamePasswordAuthenticationToken getAuthentication(HttpServletRequest request) {
